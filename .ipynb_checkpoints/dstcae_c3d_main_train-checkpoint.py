@@ -6,7 +6,7 @@ if __name__ == "__main__":
         '''
         These are the training setting. 
         '''
-        dset = 'UR-Filled'
+        dset = 'Thermal-Dummy'
         img_width, img_height, win_len, epochs = 64,64, 2,50 #win len is set to 8 for paper
         stride = 1
        

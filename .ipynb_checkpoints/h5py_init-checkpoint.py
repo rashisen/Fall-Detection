@@ -148,7 +148,6 @@ def init_videos(img_width = 64, img_height = 64, \
             with h5py.File(path, 'a') as hf:
                 #root_sub = root.create_group('Split_by_video')
                 root = hf.create_group(root_path)
-                print(f'VID DIR 1 {vid_dir_list_1[0]}')
 
                 for vid_dir in vid_dir_list_1:
                     init_vid(vid_dir = vid_dir, vid_class = 1, img_width = img_width, img_height = img_height,\
@@ -211,10 +210,9 @@ def init_vid(vid_dir = None, vid_class = None, img_width = 32, img_height = 32,\
     grp['Data'] = data
 
 def get_fall_indeces(Fall_name, dset):
-    root_dir = './Fall-Data'
-    #labels_dir = root_dir + '/{}/Labels.csv'.format(dset)
-    labels_dir = root_dir + '/UR_Kinect/Labels.csv'
-    print(labels_dir)
+    root_dir = './Fall-Data'      
+    labels_dir = root_dir + '/{}/Labels.csv'.format(dset)
+    #print(labels_dir)
     import pandas as pd
     my_data = pd.read_csv(labels_dir, sep=',', header = 0, index_col = 0)
     

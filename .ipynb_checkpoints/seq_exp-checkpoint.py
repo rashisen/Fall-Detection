@@ -88,7 +88,7 @@ class SeqExp(ImgExp):
                     os.mkdir(base)
 
                 checkpointer = ModelCheckpoint( filepath = base + '/' +  model_name + '-' + \
-                    '{epoch:03d}-{loss:.3f}.hdf5', save_freq = 100, verbose =1)
+                    '{epoch:03d}-{loss:.3f}.hdf5', period = 100, verbose =1)
                 timestamp = time.time()
                 print('./Checkpoints/' + model_name + '-' + '.{epoch:03d}-{loss:.3f}.hdf5')
                 csv_logger = CSVLogger('./Logs/' + model_name + 'training-' + \
@@ -99,7 +99,7 @@ class SeqExp(ImgExp):
 
 
                 self.model.fit(self.train_data, self.train_data, epochs = self.epochs, batch_size = self.batch_size,\
-                 verbose = 1, callbacks = callbacks_list, sample_weight = sample_weight)
+                 verbose = 2, callbacks = callbacks_list, sample_weight = sample_weight)
                 self.save_exp()
 
         def init_flipped_by_win(self, to_load_flip):
